@@ -27,17 +27,42 @@ $paneDim: 60;
     overflow: hidden;
     display: block;
     // Dynamically switch this
-    animation-name: rotback;
+    animation-name: rotbackl;
     animation-duration: 1s;
     animation-fill-mode: forwards;
     animation-direction: normal;
 }
 
-@keyframes rotback {
-    from { transform: rotateY(00deg) scale(1.00); }
-    to   { transform: rotateY(45deg) scale(0.70); }
+@keyframes rotbackl {
+    from {
+        transform: rotateY(00deg) scale(1.0);
+    }
+    to {
+        transform: rotateY(45deg) scale(0.7);
+    }
 }
-@keyframes rotforw {
-    to   { transform: rotateY(00deg) scale(1.00); }
-    from { transform: rotateY(45deg) scale(0.70); }
+@keyframes rotforwl {
+    to {
+        transform: rotateY(00deg) scale(1.0);
+    }
+    from {
+        transform: rotateY(45deg) scale(0.7);
+    }
+}
+
+@keyframes rotbackr {
+    from {
+        transform: rotateY(00deg) scale(1.0);
+    }
+    to {
+        transform: rotateY(-45deg) scale(0.7);
+    }
+}
+@keyframes rotforwr {
+    to {
+        transform: rotateY(00deg) scale(1.0);
+    }
+    from {
+        transform: rotateY(-45deg) scale(0.7);
+    }
 }

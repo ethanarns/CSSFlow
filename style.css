@@ -23,18 +23,28 @@ html, body, #cover-flow {
   margin: 0;
   overflow: hidden;
   display: block;
-  animation-name: rotback;
+  animation-name: rotbackl;
   animation-duration: 1s;
   animation-fill-mode: forwards;
   animation-direction: normal; }
 
-@keyframes rotback {
+@keyframes rotbackl {
   from {
     transform: rotateY(0deg) scale(1); }
   to {
     transform: rotateY(45deg) scale(0.7); } }
-@keyframes rotforw {
+@keyframes rotforwl {
   to {
     transform: rotateY(0deg) scale(1); }
   from {
     transform: rotateY(45deg) scale(0.7); } }
+@keyframes rotbackr {
+  from {
+    transform: rotateY(0deg) scale(1); }
+  to {
+    transform: rotateY(-45deg) scale(0.7); } }
+@keyframes rotforwr {
+  to {
+    transform: rotateY(0deg) scale(1); }
+  from {
+    transform: rotateY(-45deg) scale(0.7); } }
