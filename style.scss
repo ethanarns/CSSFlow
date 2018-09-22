@@ -22,22 +22,23 @@ $paneDim: 60;
     color: white;
     position: absolute;
     top: 50vh - ($paneDim / 2);
-    left: calc(50% - (60vh / 2));
+    left: calc(50% - (60vh / 2) + 0px);
     transform-style: preserve-3d;
     margin: 0;
     overflow: hidden;
     display: block;
+    // Dynamically switch this
     animation-name: rotback;
     animation-duration: 1s;
+    animation-fill-mode: forwards;
     animation-direction: normal;
-    animation-play-state: paused;
 }
 
 @keyframes rotback {
-    from {
-        transform: rotateY(0deg);
-    }
-    to {
-        transform: rotateY(45deg);
-    }
+    from { transform: rotateY(00deg) scale(1.00); }
+    to   { transform: rotateY(45deg) scale(0.85); }
+}
+@keyframes rotfor {
+    to   { transform: rotateY(00deg) scale(1.00); }
+    from { transform: rotateY(45deg) scale(0.85); }
 }

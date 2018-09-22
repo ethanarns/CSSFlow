@@ -19,18 +19,23 @@ html, body, #cover-flow {
   color: white;
   position: absolute;
   top: 20vh;
-  left: calc(50% - (60vh / 2));
+  left: calc(50% - (60vh / 2) + 0px);
   transform-style: preserve-3d;
   margin: 0;
   overflow: hidden;
   display: block;
   animation-name: rotback;
   animation-duration: 1s;
-  animation-direction: normal;
-  animation-play-state: paused; }
+  animation-fill-mode: forwards;
+  animation-direction: normal; }
 
 @keyframes rotback {
   from {
-    transform: rotateY(0deg); }
+    transform: rotateY(0deg) scale(1); }
   to {
-    transform: rotateY(45deg); } }
+    transform: rotateY(45deg) scale(0.85); } }
+@keyframes rotfor {
+  to {
+    transform: rotateY(0deg) scale(1); }
+  from {
+    transform: rotateY(45deg) scale(0.85); } }
