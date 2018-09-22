@@ -23,7 +23,6 @@ html, body, #cover-flow {
   margin: 0;
   overflow: hidden;
   display: block;
-  animation-name: rotbackl;
   animation-duration: 1s;
   animation-fill-mode: forwards;
   animation-direction: normal; }

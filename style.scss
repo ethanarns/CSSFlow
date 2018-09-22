@@ -26,11 +26,13 @@ $paneDim: 60;
     margin: 0;
     overflow: hidden;
     display: block;
-    // Dynamically switch this
-    animation-name: rotbackl;
     animation-duration: 1s;
     animation-fill-mode: forwards;
     animation-direction: normal;
+    // Dynamically set these:
+    //animation-name: rotbackl;
+    //left: calc(50% - (60vh / 2) + 0px)
+    //z-index: 0
 }
 
 @keyframes rotbackl {
