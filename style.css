@@ -19,7 +19,9 @@ html, body, #cover-flow {
   color: white;
   position: absolute;
   top: 20vh;
+  left: calc(50% - (60vh / 2));
   transform-style: preserve-3d;
+  margin: 0;
   overflow: hidden;
   display: block;
   animation-name: rotback;
