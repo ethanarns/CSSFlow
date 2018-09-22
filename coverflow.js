@@ -1,7 +1,6 @@
 var paneCount = 4;
 var listIndex = 0;
 var canMove = true;
-var calc = "left: calc(50% - (60vh / 2) + ";
 
 // Set up existing panes
 function updatePanes() {
@@ -17,6 +16,9 @@ function updatePanes() {
         }
         else if (i === listIndex + 1) {
             curPane.style.animationName = "rotbackl";
+        }
+        else {
+            curPane.style.animationName = (i > listIndex) ? "rotbackl" : "rotbackr";
         }
         // Set Z-Index
         curPane.style.zIndex = 100 - Math.abs(diff);

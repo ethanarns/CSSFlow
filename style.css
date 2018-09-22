@@ -1,5 +1,4 @@
-/* Scss Document */
-html, body, #cover-flow {
+html, body, #cover-flow, #mover {
   margin: 0;
   padding: 0;
   border: 0;
@@ -8,9 +7,14 @@ html, body, #cover-flow {
 
 #cover-flow {
   background-image: radial-gradient(grey, black);
-  perspective: 500px;
   overflow: hidden;
   position: relative; }
+
+#mover {
+  top: 0px;
+  left: 0px;
+  position: absolute;
+  perspective: 500px; }
 
 .pane {
   width: 60vh;
@@ -30,29 +34,29 @@ html, body, #cover-flow {
 
 @keyframes rotbackl {
   from {
-    transform: rotateY(0deg) scale(1);
-    -webkit-transform: rotateY(0deg) scale(1); }
+    -webkit-transform: rotateY(0deg) scale(1);
+    transform: rotateY(0deg) scale(1); }
   to {
-    transform: rotateY(45deg) scale(0.7);
-    -webkit-transform: rotateY(45deg) scale(0.7); } }
+    -webkit-transform: rotateY(45deg) scale(0.7);
+    transform: rotateY(45deg) scale(0.7); } }
 @keyframes rotforwl {
   to {
-    transform: rotateY(0deg) scale(1);
-    -webkit-transform: rotateY(0deg) scale(1); }
+    -webkit-transform: rotateY(0deg) scale(1);
+    transform: rotateY(0deg) scale(1); }
   from {
-    transform: rotateY(45deg) scale(0.7);
-    -webkit-transform: rotateY(45deg) scale(0.7); } }
+    -webkit-transform: rotateY(45deg) scale(0.7);
+    transform: rotateY(45deg) scale(0.7); } }
 @keyframes rotbackr {
   from {
-    transform: rotateY(0deg) scale(1);
-    -webkit-transform: rotateY(0deg) scale(1); }
+    -webkit-transform: rotateY(0deg) scale(1);
+    transform: rotateY(0deg) scale(1); }
   to {
-    transform: rotateY(-45deg) scale(0.7);
-    -webkit-transform: rotateY(-45deg) scale(0.7); } }
+    -webkit-transform: rotateY(-45deg) scale(0.7);
+    transform: rotateY(-45deg) scale(0.7); } }
 @keyframes rotforwr {
   to {
-    transform: rotateY(0deg) scale(1);
-    -webkit-transform: rotateY(0deg) scale(1); }
+    -webkit-transform: rotateY(0deg) scale(1);
+    transform: rotateY(0deg) scale(1); }
   from {
-    transform: rotateY(-45deg) scale(0.7);
-    -webkit-transform: rotateY(-45deg) scale(0.7); } }
+    -webkit-transform: rotateY(-45deg) scale(0.7);
+    transform: rotateY(-45deg) scale(0.7); } }
