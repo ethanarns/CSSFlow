@@ -3,14 +3,12 @@ var listIndex = 1;
 var canMove = true;
 function keydown(evt) {
     if (!canMove) {
-        console.log("Cannot move yet.");
         return;
     }
     var dir;
     if (evt.keyCode === 37) {
         dir = "l";
         if (listIndex >= paneCount - 1) {
-            console.log("Out of bounds.");
             return;
         }
         listIndex++;
@@ -18,15 +16,14 @@ function keydown(evt) {
     else if (evt.keyCode === 39) {
         dir = "r";
         if (listIndex <= 0) {
-            console.log("Out of bounds");
             return;
         }
         listIndex--;
     }
     for (var i = 0; i < paneCount; i++) {
-        var diff = Math.abs(listIndex - i);
+        var diff = listIndex - i;
         var curPane = document.getElementById("pane-" + i);
-        curPane.style.zIndex = 100 - diff;
+        curPane.style.zIndex = 100 - Math.abs(diff);
         if (i === listIndex) {
             curPane.style.animationName = "rotforw" + dir;
         }
