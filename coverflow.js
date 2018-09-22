@@ -1,5 +1,5 @@
 var paneCount = 4;
-var listIndex = 0;
+var listIndex = 1;
 var canMove = true;
 function keydown(evt) {
     if (!canMove) {
@@ -23,11 +23,8 @@ function keydown(evt) {
         }
         listIndex--;
     }
-    //console.log(listIndex);
     for (var i = 0; i < paneCount; i++) {
         var diff = Math.abs(listIndex - i);
-        //console.log("" + i + "'s diff: " + diff);
-        //console.log("id: pane-" + i);
         var curPane = document.getElementById("pane-" + i);
         curPane.style.zIndex = 100 - diff;
         if (i === listIndex) {

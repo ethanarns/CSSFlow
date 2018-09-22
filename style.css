@@ -19,7 +19,8 @@ html, body, #cover-flow {
   color: white;
   position: absolute;
   top: 20vh;
-  transform-style: preserve-3d;
+  transform-style: flat;
+  -webkit-transform-style: flat;
   margin: 0;
   overflow: hidden;
   display: block;
@@ -29,21 +30,29 @@ html, body, #cover-flow {
 
 @keyframes rotbackl {
   from {
-    transform: rotateY(0deg) scale(1); }
+    transform: rotateY(0deg) scale(1);
+    -webkit-transform: rotateY(0deg) scale(1); }
   to {
-    transform: rotateY(45deg) scale(0.7); } }
+    transform: rotateY(45deg) scale(0.7);
+    -webkit-transform: rotateY(45deg) scale(0.7); } }
 @keyframes rotforwl {
   to {
-    transform: rotateY(0deg) scale(1); }
+    transform: rotateY(0deg) scale(1);
+    -webkit-transform: rotateY(0deg) scale(1); }
   from {
-    transform: rotateY(45deg) scale(0.7); } }
+    transform: rotateY(45deg) scale(0.7);
+    -webkit-transform: rotateY(45deg) scale(0.7); } }
 @keyframes rotbackr {
   from {
-    transform: rotateY(0deg) scale(1); }
+    transform: rotateY(0deg) scale(1);
+    -webkit-transform: rotateY(0deg) scale(1); }
   to {
-    transform: rotateY(-45deg) scale(0.7); } }
+    transform: rotateY(-45deg) scale(0.7);
+    -webkit-transform: rotateY(-45deg) scale(0.7); } }
 @keyframes rotforwr {
   to {
-    transform: rotateY(0deg) scale(1); }
+    transform: rotateY(0deg) scale(1);
+    -webkit-transform: rotateY(0deg) scale(1); }
   from {
-    transform: rotateY(-45deg) scale(0.7); } }
+    transform: rotateY(-45deg) scale(0.7);
+    -webkit-transform: rotateY(-45deg) scale(0.7); } }

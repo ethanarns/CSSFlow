@@ -22,7 +22,9 @@ $paneDim: 60;
     color: white;
     position: absolute;
     top: 50vh - ($paneDim / 2);
-    transform-style: preserve-3d;
+    // Flat has children match 3d transformations
+    transform-style: flat;
+    -webkit-transform-style: flat; // Safari 8-
     margin: 0;
     overflow: hidden;
     display: block;
@@ -38,33 +40,41 @@ $paneDim: 60;
 @keyframes rotbackl {
     from {
         transform: rotateY(00deg) scale(1.0);
+        -webkit-transform: rotateY(00deg) scale(1.0);
     }
     to {
         transform: rotateY(45deg) scale(0.7);
+        -webkit-transform: rotateY(45deg) scale(0.7);
     }
 }
 @keyframes rotforwl {
     to {
         transform: rotateY(00deg) scale(1.0);
+        -webkit-transform: rotateY(00deg) scale(1.0);
     }
     from {
         transform: rotateY(45deg) scale(0.7);
+        -webkit-transform: rotateY(45deg) scale(0.7);
     }
 }
 
 @keyframes rotbackr {
     from {
         transform: rotateY(00deg) scale(1.0);
+        -webkit-transform: rotateY(00deg) scale(1.0);
     }
     to {
         transform: rotateY(-45deg) scale(0.7);
+        -webkit-transform: rotateY(-45deg) scale(0.7);
     }
 }
 @keyframes rotforwr {
     to {
         transform: rotateY(00deg) scale(1.0);
+        -webkit-transform: rotateY(00deg) scale(1.0);
     }
     from {
         transform: rotateY(-45deg) scale(0.7);
+        -webkit-transform: rotateY(-45deg) scale(0.7);
     }
 }
