@@ -23,7 +23,7 @@ html, body, #cover-flow {
   margin: 0;
   overflow: hidden;
   display: block;
-  animation-duration: 1s;
+  animation-duration: 0.5s;
   animation-fill-mode: forwards;
   animation-direction: normal; }
 
