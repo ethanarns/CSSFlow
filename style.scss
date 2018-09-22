@@ -22,7 +22,6 @@ $paneDim: 60;
     color: white;
     position: absolute;
     top: 50vh - ($paneDim / 2);
-    left: calc(50% - (60vh / 2) + 0px);
     transform-style: preserve-3d;
     margin: 0;
     overflow: hidden;
@@ -36,9 +35,9 @@ $paneDim: 60;
 
 @keyframes rotback {
     from { transform: rotateY(00deg) scale(1.00); }
-    to   { transform: rotateY(45deg) scale(0.85); }
+    to   { transform: rotateY(45deg) scale(0.70); }
 }
-@keyframes rotfor {
+@keyframes rotforw {
     to   { transform: rotateY(00deg) scale(1.00); }
-    from { transform: rotateY(45deg) scale(0.85); }
+    from { transform: rotateY(45deg) scale(0.70); }
 }
