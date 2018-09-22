@@ -4,30 +4,30 @@
     <meta charset="UTF-8">
     <title>CSS Flow</title>
     <link rel="stylesheet" href="./style.css" type="text/css">
-    <script type="text/javascript" src="./coverflow.js"></script>
 </head>
 <body>
     <div id="cover-flow">
-        <section class="pane" id="pane-0" style="left: calc(50% - (60vh / 2) + 100px + 0px); animation-name: rotbackr; z-index: 0;">
+        <section class="pane" id="pane-0" style="left: calc(50% - (60vh / 2) + 0px); animation-name: rotforwl; z-index: 100;">
             Track: Feels Like I'm Dying - 0<br>
             Artist: The Amity Affliction<br>
             Album: Misery
         </section>
-        <section class="pane" id="pane-1" style="left: calc(50% - (60vh / 2) + 0px); animation-name: rotforwl; z-index: 100;">
+        <section class="pane" id="pane-1" style="left: calc(50% - (60vh / 2) - 100px); animation-name: rotbackl; z-index: 0;">
             Track: Feels Like I'm Dying - 1<br>
             Artist: The Amity Affliction<br>
             Album: Misery
         </section>
-        <section class="pane" id="pane-2" style="left: calc(50% - (60vh / 2) - 100px - 0px); animation-name: rotbackl; z-index: 0">
+        <section class="pane" id="pane-2" style="left: calc(50% - (60vh / 2) - 200px); animation-name: rotbackl; z-index: -1">
             Track: Feels Like I'm Dying - 2<br>
             Artist: The Amity Affliction<br>
             Album: Misery
         </section>
-        <section class="pane" id="pane-3" style="left: calc(50% - (60vh / 2) - 100px - 50px); animation-name: rotbackl; z-index: -1">
+        <section class="pane" id="pane-3" style="left: calc(50% - (60vh / 2) - 300px); animation-name: rotbackl; z-index: -2">
             Track: Feels Like I'm Dying - 3<br>
             Artist: The Amity Affliction<br>
             Album: Misery
         </section>
     </div>
+    <script defer type="text/javascript" src="./coverflow.js"></script>
 </body>
 </html>

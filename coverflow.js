@@ -1,6 +1,30 @@
 var paneCount = 4;
-var listIndex = 1;
+var listIndex = 0;
 var canMove = true;
+var calc = "left: calc(50% - (60vh / 2) + ";
+
+// Set up existing panes
+function updatePanes() {
+    for (var i = 0; i < paneCount; i++) {
+        var diff = listIndex - i;
+        var curPane = document.getElementById("pane-" + i);
+        
+        if (i === listIndex) {
+            curPane.style.animationName = "rotforwl";
+        }
+        else if (i === listIndex - 1) {
+            curPane.style.animationName = "rotbackr";
+        }
+        else if (i === listIndex + 1) {
+            curPane.style.animationName = "rotbackl";
+        }
+        // Set Z-Index
+        curPane.style.zIndex = 100 - Math.abs(diff);
+    }
+}
+
+updatePanes();
+
 function keydown(evt) {
     if (!canMove) {
         return;
@@ -20,20 +44,7 @@ function keydown(evt) {
         }
         listIndex--;
     }
-    for (var i = 0; i < paneCount; i++) {
-        var diff = listIndex - i;
-        var curPane = document.getElementById("pane-" + i);
-        curPane.style.zIndex = 100 - Math.abs(diff);
-        if (i === listIndex) {
-            curPane.style.animationName = "rotforw" + dir;
-        }
-        else if (i === listIndex - 1) {
-            curPane.style.animationName = "rotbackr";
-        }
-        else if (i === listIndex + 1) {
-            curPane.style.animationName = "rotbackl";
-        }
-    }
+    updatePanes();
     canMove = false;
     window.setTimeout(function() {
         canMove = true;
