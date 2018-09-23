@@ -1,7 +1,6 @@
 var paneCount = 6;
 var listIndex = 0;
 var canMove = true;
-var offset = 0;
 var DIST = 150;
 var TIME = 500;
 
@@ -17,65 +16,58 @@ function slidePanes(amt) {
     });
 }
 
+for (var j = 0; j < paneCount; j++) {
+    var curPane = document.getElementById("pane-" + j);
+    setPanePos(curPane, (j * DIST));
+}
+
 // Set up existing panes
-function updatePanes(dir, initial) {
+function updatePanes(dir) {
     for (var i = 0; i < paneCount; i++) {
         var diff = listIndex - i;
         var curPane = document.getElementById("pane-" + i);
         // Set animation direction
         if (i === listIndex) {
             curPane.style.animationName = "rotforw" + dir;
-            if (initial) {
-                setPanePos(curPane, (i * -DIST) + offset);
-            }
         }
         else if (i === listIndex - 1) {
-            curPane.style.animationName = "rotbackr";
-            if (initial) {
-                setPanePos(curPane, (i * -DIST) + offset);
-            }
+            curPane.style.animationName = "rotbackl";
         }
         else if (i === listIndex + 1) {
-            curPane.style.animationName = "rotbackl";
-            if (initial) {
-                setPanePos(curPane, (i * -DIST) + offset);
-            }
+            curPane.style.animationName = "rotbackr";
         }
         else {
-            curPane.style.animationName = (i > listIndex) ? "rotbackl" : "rotbackr";
-            if (initial) {
-                setPanePos(curPane, (i * -DIST) + offset);
-            }
+            curPane.style.animationName = (i < listIndex) ? "rotbackl" : "rotbackr";
         }
         // Set Z-Index
         curPane.style.zIndex = 100 - Math.abs(diff);
     }
 }
 
-updatePanes("l", true);
+updatePanes("l");
 
 function keydown(evt) {
     if (!canMove) {
         return;
     }
     var dir;
-    if (evt.keyCode === 37) {
-        dir = "l";
+    if (evt.keyCode === 39) {
+        dir = "r";
         if (listIndex >= paneCount - 1) {
             return;
         }
         listIndex++;
         //offset += DIST;
-        slidePanes(DIST, false);
+        slidePanes(-DIST, false);
     }
-    else if (evt.keyCode === 39) {
-        dir = "r";
+    else if (evt.keyCode === 37) {
+        dir = "l";
         if (listIndex <= 0) {
             return;
         }
         listIndex--;
         //offset -= DIST;
-        slidePanes(-DIST, false);
+        slidePanes(DIST, false);
     }
     updatePanes(dir);
     canMove = false;
