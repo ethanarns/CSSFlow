@@ -18,8 +18,20 @@ function slidePanes(amt) {
 
 function clickTarget(e) {
     var t = e.target.id.substr(5, e.target.id.length-1);
-    console.log("t: " + t);
-    console.log("listIndex: " + listIndex);
+    var dir;
+    var diff = t - listIndex;
+    if (diff === 0) {
+        return;
+    }
+    if (diff < 0) {
+        dir = "l";
+    }
+    else {
+        dir = "r";
+    }
+    slidePanes(-DIST * diff);
+    listIndex += diff;
+    updatePanes(dir);
 }
 
 for (var j = 0; j < paneCount; j++) {
@@ -65,7 +77,7 @@ function keydown(evt) {
         }
         listIndex++;
         //offset += DIST;
-        slidePanes(-DIST, false);
+        slidePanes(-DIST);
     }
     else if (evt.keyCode === 37) {
         dir = "l";
@@ -74,7 +86,7 @@ function keydown(evt) {
         }
         listIndex--;
         //offset -= DIST;
-        slidePanes(DIST, false);
+        slidePanes(DIST);
     }
     updatePanes(dir);
     canMove = false;
