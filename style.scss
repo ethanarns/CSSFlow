@@ -14,16 +14,18 @@ html, body, #cover-flow, #mover {
 
 #mover {
     top: 0px;
-    left: 0px;
+    // Left will be slide to move all
+    left: 00px;
     position: absolute;
     perspective: 500px;
+    perspective-origin: center;
 }
 
 $paneDim: 60;
 .pane {
     width: $paneDim + vh;
     height: $paneDim + vh;
-    background-color: black;
+    background-color: rgba(100,100,100,0.5);
     color: white;
     position: absolute;
     top: 50vh - ($paneDim / 2);
@@ -41,15 +43,15 @@ $paneDim: 60;
     //left: calc(50% - (60vh / 2) + 0px)
     //z-index: 0
 }
-
+$shrink: 0.7;
 @keyframes rotbackl {
     from {
         -webkit-transform: rotateY(00deg) scale(1.0);
         transform: rotateY(00deg) scale(1.0);
     }
     to {
-        -webkit-transform: rotateY(45deg) scale(0.7);
-        transform: rotateY(45deg) scale(0.7);
+        -webkit-transform: rotateY(45deg) scale($shrink);
+        transform: rotateY(45deg) scale($shrink);
     }
 }
 @keyframes rotforwl {
@@ -58,8 +60,8 @@ $paneDim: 60;
         transform: rotateY(00deg) scale(1.0);
     }
     from {
-        -webkit-transform: rotateY(45deg) scale(0.7);
-        transform: rotateY(45deg) scale(0.7);
+        -webkit-transform: rotateY(45deg) scale($shrink);
+        transform: rotateY(45deg) scale($shrink);
     }
 }
 
@@ -69,8 +71,8 @@ $paneDim: 60;
         transform: rotateY(00deg) scale(1.0);
     }
     to {
-        -webkit-transform: rotateY(-45deg) scale(0.7);
-        transform: rotateY(-45deg) scale(0.7);
+        -webkit-transform: rotateY(-45deg) scale($shrink);
+        transform: rotateY(-45deg) scale($shrink);
     }
 }
 @keyframes rotforwr {
@@ -79,7 +81,7 @@ $paneDim: 60;
         transform: rotateY(00deg) scale(1.0);
     }
     from {
-        -webkit-transform: rotateY(-45deg) scale(0.7);
-        transform: rotateY(-45deg) scale(0.7);
+        -webkit-transform: rotateY(-45deg) scale($shrink);
+        transform: rotateY(-45deg) scale($shrink);
     }
 }

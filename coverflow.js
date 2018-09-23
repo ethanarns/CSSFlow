@@ -1,15 +1,16 @@
-var paneCount = 4;
+var paneCount = 6;
 var listIndex = 0;
 var canMove = true;
 
 // Set up existing panes
-function updatePanes() {
+function updatePanes(dir) {
     for (var i = 0; i < paneCount; i++) {
         var diff = listIndex - i;
         var curPane = document.getElementById("pane-" + i);
         
+        // Set animation direction
         if (i === listIndex) {
-            curPane.style.animationName = "rotforwl";
+            curPane.style.animationName = "rotforw" + dir;
         }
         else if (i === listIndex - 1) {
             curPane.style.animationName = "rotbackr";
@@ -25,7 +26,7 @@ function updatePanes() {
     }
 }
 
-updatePanes();
+updatePanes("l");
 
 function keydown(evt) {
     if (!canMove) {
@@ -46,7 +47,7 @@ function keydown(evt) {
         }
         listIndex--;
     }
-    updatePanes();
+    updatePanes(dir);
     canMove = false;
     window.setTimeout(function() {
         canMove = true;
