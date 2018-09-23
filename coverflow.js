@@ -16,9 +16,16 @@ function slidePanes(amt) {
     });
 }
 
+function clickTarget(e) {
+    var t = e.target.id.substr(5, e.target.id.length-1);
+    console.log("t: " + t);
+    console.log("listIndex: " + listIndex);
+}
+
 for (var j = 0; j < paneCount; j++) {
     var curPane = document.getElementById("pane-" + j);
     setPanePos(curPane, (j * DIST));
+    curPane.addEventListener("click", clickTarget, false);
 }
 
 // Set up existing panes
