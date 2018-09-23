@@ -8,34 +8,51 @@ function setPanePos(el, pos) {
     el.style.left = "calc(50% - 30vh + " + pos + "px)";
 }
 
+function slidePanes(amt) {
+    console.log("Sliding...");
+    $(".pane").animate({
+        left: "+=" + amt
+    }, 500, function() {
+        console.log("Done!");
+    });
+}
+
 // Set up existing panes
-function updatePanes(dir) {
+function updatePanes(dir, initial) {
     for (var i = 0; i < paneCount; i++) {
         var diff = listIndex - i;
         var curPane = document.getElementById("pane-" + i);
         // Set animation direction
         if (i === listIndex) {
             curPane.style.animationName = "rotforw" + dir;
-            setPanePos(curPane, (i * -DIST) + offset);
+            if (initial) {
+                setPanePos(curPane, (i * -DIST) + offset);
+            }
         }
         else if (i === listIndex - 1) {
             curPane.style.animationName = "rotbackr";
-            setPanePos(curPane, (i * -DIST) + offset);
+            if (initial) {
+                setPanePos(curPane, (i * -DIST) + offset);
+            }
         }
         else if (i === listIndex + 1) {
             curPane.style.animationName = "rotbackl";
-            setPanePos(curPane, (i * -DIST) + offset);
+            if (initial) {
+                setPanePos(curPane, (i * -DIST) + offset);
+            }
         }
         else {
             curPane.style.animationName = (i > listIndex) ? "rotbackl" : "rotbackr";
-            setPanePos(curPane, (i * -DIST) + offset);
+            if (initial) {
+                setPanePos(curPane, (i * -DIST) + offset);
+            }
         }
         // Set Z-Index
         curPane.style.zIndex = 100 - Math.abs(diff);
     }
 }
 
-updatePanes("l");
+updatePanes("l", true);
 
 function keydown(evt) {
     if (!canMove) {
@@ -48,7 +65,8 @@ function keydown(evt) {
             return;
         }
         listIndex++;
-        offset += DIST;
+        //offset += DIST;
+        slidePanes(DIST, false);
     }
     else if (evt.keyCode === 39) {
         dir = "r";
@@ -56,20 +74,13 @@ function keydown(evt) {
             return;
         }
         listIndex--;
-        offset -= DIST;
+        //offset -= DIST;
+        slidePanes(-DIST, false);
     }
     updatePanes(dir);
     canMove = false;
     window.setTimeout(function() {
         canMove = true;
-    }, 250);
+    }, 500);
 }
 document.addEventListener("keydown", keydown, false);
-
-function slidePanes(amt) {
-    $(".pane").animate({
-        left: "+=" + amt
-    }, 500, function() {
-        console.log("Done!");
-    });
-}
