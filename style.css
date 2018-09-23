@@ -8,14 +8,8 @@ html, body, #cover-flow, #mover {
 #cover-flow {
   background-image: radial-gradient(grey, black);
   overflow: hidden;
-  position: relative; }
-
-#mover {
-  top: 0px;
-  left: 00px;
-  position: absolute;
-  perspective: 500px;
-  perspective-origin: center; }
+  position: relative;
+  perspective: 500px; }
 
 .pane {
   width: 60vh;

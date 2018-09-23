@@ -1,3 +1,4 @@
+$DIST: 50px;
 html, body, #cover-flow, #mover {
     margin: 0;
     padding: 0;
@@ -10,15 +11,7 @@ html, body, #cover-flow, #mover {
     background-image: radial-gradient(grey, black);
     overflow: hidden;
     position: relative;
-}
-
-#mover {
-    top: 0px;
-    // Left will be slide to move all
-    left: 00px;
-    position: absolute;
     perspective: 500px;
-    perspective-origin: center;
 }
 
 $paneDim: 60;

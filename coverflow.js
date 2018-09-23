@@ -65,3 +65,11 @@ function keydown(evt) {
     }, 250);
 }
 document.addEventListener("keydown", keydown, false);
+
+function slidePanes(amt) {
+    $(".pane").animate({
+        left: "+=" + amt
+    }, 500, function() {
+        console.log("Done!");
+    });
+}
