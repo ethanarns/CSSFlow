@@ -22,7 +22,7 @@ html, body, #cover-flow, #mover {
 .pane {
   width: 60vh;
   height: 60vh;
-  background-image: url(images/misery.jpg);
+  background-image: url("misery.jpg");
   background-size: contain;
   padding: 10px;
   text-align: center;
