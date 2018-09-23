@@ -18,7 +18,11 @@ $paneDim: 60;
 .pane {
     width: $paneDim + vh;
     height: $paneDim + vh;
-    background-color: rgba(100,100,100,0.5);
+    //background-color: rgba(100,100,100,0.5);
+    background-image: url(images/misery.jpg);
+    background-size: contain;
+    padding: 10px;
+    text-align: center;
     color: white;
     position: absolute;
     top: 50vh - ($paneDim / 2);
