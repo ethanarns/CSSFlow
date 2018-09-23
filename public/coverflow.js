@@ -17,6 +17,9 @@ function slidePanes(amt) {
 }
 
 function clickTarget(e) {
+    if (!canMove) {
+        return;
+    }
     var t = e.target.id.substr(5, e.target.id.length-1);
     var dir;
     var diff = t - listIndex;
@@ -32,6 +35,10 @@ function clickTarget(e) {
     slidePanes(-DIST * diff);
     listIndex += diff;
     updatePanes(dir);
+    canMove = false;
+    window.setTimeout(function() {
+        canMove = true;
+    }, TIME - 100);
 }
 
 for (var j = 0; j < paneCount; j++) {
