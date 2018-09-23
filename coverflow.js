@@ -2,18 +2,18 @@ var paneCount = 6;
 var listIndex = 0;
 var canMove = true;
 var offset = 0;
-var DIST = 50;
+var DIST = 150;
+var TIME = 500;
 
 function setPanePos(el, pos) {
     el.style.left = "calc(50% - 30vh + " + pos + "px)";
 }
 
 function slidePanes(amt) {
-    console.log("Sliding...");
     $(".pane").animate({
         left: "+=" + amt
-    }, 500, function() {
-        console.log("Done!");
+    }, TIME, function() {
+        //console.log("Done!");
     });
 }
 
@@ -81,6 +81,6 @@ function keydown(evt) {
     canMove = false;
     window.setTimeout(function() {
         canMove = true;
-    }, 500);
+    }, TIME - 100);
 }
 document.addEventListener("keydown", keydown, false);
