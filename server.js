@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const Sequelize = require('sequelize');
-const sequelize = new Sequelize('database', 'username', 'password', {
+const sequelize = new Sequelize('db', 'root', 'password', {
     host: 'localhost',
     dialect: 'sqlite',
     operatorsAliases: false,
@@ -15,6 +15,10 @@ const sequelize = new Sequelize('database', 'username', 'password', {
     },
     storage: './db.sqlite'
 });
+// Test connection
+sequelize.authenticate()
+    .then(() => { console.log('Connection successful.'); })
+    .catch(err => { console.error('Unable to connect to the database:', err); });
 
 const PORT = 3002;
 
