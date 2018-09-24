@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const Sequelize = require('sequelize');
-const sequelize = new Sequelize('db', 'root', 'password', {
+const sequelize = new Sequelize('db', 'root', null, {
     host: 'localhost',
     dialect: 'sqlite',
     operatorsAliases: false,
@@ -19,6 +19,28 @@ const sequelize = new Sequelize('db', 'root', 'password', {
 sequelize.authenticate()
     .then(() => { console.log('Connection successful.'); })
     .catch(err => { console.error('Unable to connect to the database:', err); });
+// Define table
+const Songs = sequelize.define('songs', {
+    id: {
+        type: Sequelize.INTEGER,
+        autoIncrement: true,
+        primaryKey: true
+    },
+    name: Sequelize.STRING,
+    album: Sequelize.STRING,
+    artist: Sequelize.STRING,
+    fileUrl: Sequelize.STRING,
+    imageUrl: Sequelize.STRING
+});
+// Save table to database
+Songs.sync({force: false});
+
+// Add a value (example)
+/*Songs.create({
+    name: "Feels Like I'm Dying",
+    album: "Misery",
+    artist: "The Amity Affliction"
+});*/
 
 const PORT = 3002;
 
