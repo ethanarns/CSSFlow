@@ -2,6 +2,8 @@ const fs = require('fs');
 const express = require('express');
 const app = express();
 const path = require('path');
+const bodyParser = require('body-parser');
+const urlencodedParser = bodyParser.urlencoded({ extended: false });
 const Sequelize = require('sequelize');
 const sequelize = new Sequelize('db', 'root', null, {
     host: 'localhost',
@@ -31,9 +33,7 @@ const Songs = sequelize.define('songs', {
     artist: Sequelize.STRING,
     fileUrl: Sequelize.STRING,
     imageUrl: Sequelize.STRING
-});
-// Save table to database
-Songs.sync({force: false});
+}).sync({force: false});
 
 // Add a value (example)
 /*Songs.create({
@@ -52,6 +52,10 @@ app.use('/images', express.static(path.join(__dirname, "public/images")));
 
 app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "/public/index.html"));
+});
+
+app.post("/add", urlencodedParser, async function(req, res) {
+    console.log(req.body);
 });
 
 app.listen(PORT, function() {
